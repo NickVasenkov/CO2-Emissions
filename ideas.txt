@@ -1,0 +1,15 @@
+THE IDEAS YET TO TRY:
+
+
+Time-Series data:
+-) emissions_time - predict emissions based on historical data, use as a feature
+
+Missing values:
+-) historical data can be used
+-) geolocation can be used
+-) kNN or MICE, starting from the least missing
+# Let's follow: https://www.kaggle.com/code/parulpandey/a-guide-to-handling-missing-values-in-python
+# BUT: Consider normalization first, seems to be important both for MICE and kNN
+
+Geographical data: 
+- Location clusters
