@@ -4,12 +4,11 @@ THE IDEAS YET TO TRY:
 Time-Series data:
 -) try different numbers of Fourier pairs
 
-Missing values:
--) historical data can be used
--) geolocation can be used
--) kNN or MICE, starting from the least missing
-# Let's follow: https://www.kaggle.com/code/parulpandey/a-guide-to-handling-missing-values-in-python
-# BUT: Consider normalization first, seems to be important both for MICE and kNN
 
-Geographical data: 
-- Location clusters
+
+
+Dimensionality Reduction: -) PCA
+
+then hyperparameters tuning on LightGBM and other models
+
+then ensemble 3 best models
