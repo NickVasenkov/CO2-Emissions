@@ -1,4 +1,5 @@
 def get_score_3(global_variables, train, test=None,
+              scaler=None,
               post_training_df=None,
               model=None, scores_df=None,
               update=True, comment='',
@@ -11,6 +12,7 @@ def get_score_3(global_variables, train, test=None,
     '''
     This function takes the global variables DataFrame, 
     the processed train and test sets,
+    scaler for standartization,
     the post-training DataFrame,
     an estimator for cross validation,
     the scores DataFrame
@@ -31,7 +33,7 @@ def get_score_3(global_variables, train, test=None,
     (Score is described in CO2 Emissions.ipynb -> 00. Baseline)
     '''
 
-    TARGET = 'emission_04'
+    TARGET = 'emission_03_scaled'
 
     # Import global n_splits
     if global_n_splits:
@@ -54,20 +56,24 @@ def get_score_3(global_variables, train, test=None,
         # Fit the model
         model.fit(cv_train.drop(TARGET, axis=1), cv_train[TARGET])
 
-        # Predictions of residues
+        # Predictions of scaled residues
         train_pred = model.predict(cv_train.drop(TARGET, axis=1))
         cv_pred = model.predict(cv_test.drop(TARGET, axis=1))
 
-        # transform into the real target
-        train_pred += post_training_train['Trend'] + post_training_train['Seasonality'] \
-                        + post_training_train['Cycles_forecast']
-        cv_pred += post_training_cv['Trend'] + post_training_cv['Seasonality'] \
-                      + post_training_cv['Cycles_forecast']
+        # Descale
+        train_pred = scaler.inverse_transform(train_pred.reshape(-1, 1))
+        cv_pred = scaler.inverse_transform(cv_pred.reshape(-1, 1))
 
+        print(train_pred)
+        print(train_pred[0])
+
+        # transform into the real target
+        train_pred[0] += post_training_train['Trend'] + post_training_train['Seasonality']
+        cv_pred[0] += post_training_cv['Trend'] + post_training_cv['Seasonality']
 
         # Calculate scores and append to the scores lists
-        train_scores.append(mean_squared_error(post_training_train['emission'], train_pred, squared=False))
-        cv_scores.append(mean_squared_error(post_training_cv['emission'], cv_pred, squared=False))
+        train_scores.append(mean_squared_error(post_training_train['emission'], train_pred[0], squared=False))
+        cv_scores.append(mean_squared_error(post_training_cv['emission'], cv_pred[0], squared=False))
 
     # Calculate Scores
     train_score = np.mean(train_scores) + np.std(train_scores)
@@ -90,8 +96,7 @@ def get_score_3(global_variables, train, test=None,
 
 
         # transform into the real target
-        test_pred += post_training_test['Trend'] + post_training_test['Seasonality'] \
-                      + post_training_test['Cycles_forecast']
+        test_pred += post_training_test['Trend'] + post_training_test['Seasonality']
 
         # Prepare the submission DataFrame
         test_pred = pd.DataFrame(test_pred, columns=['emission'])

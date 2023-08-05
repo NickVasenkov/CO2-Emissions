@@ -6,9 +6,17 @@ Time-Series data:
 
 
 
+-) try scikit's TargetEncoder
 
-Dimensionality Reduction: -) PCA
 
-then hyperparameters tuning on LightGBM and other models
+-) tri Standartizing the target (closer to the end)
+
+
+hyperparameters tuning on LightGBM and other models
 
 then ensemble 3 best models
+
+
+
+OFFTOPIC
+for spaceship-try residuals
