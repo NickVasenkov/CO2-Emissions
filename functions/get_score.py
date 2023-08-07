@@ -47,11 +47,20 @@ def get_score(global_variables, train, test=None, model=None, scores_df=None,
         # Fit the model
         model.fit(cv_train.drop('emission', axis=1), cv_train['emission'])
 
-        # Calculate scores and append to the scores lists
+        ## Calculate scores and append to the scores lists
         train_pred = model.predict(cv_train.drop('emission', axis=1))
-        train_scores.append(mean_squared_error(cv_train['emission'], train_pred, squared=False))
+        # Check for unreasonable predictions:
+        if max(abs(train_pred)) > 1000000 or np.isnan(train_pred).any():
+            train_scores.append(500)
+        else:
+            train_scores.append(mean_squared_error(cv_train['emission'], train_pred, squared=False))
+
         cv_pred = model.predict(cv_test.drop('emission', axis=1))
-        cv_scores.append(mean_squared_error(cv_test['emission'], cv_pred, squared=False))
+        # Check for unreasonable predictions:
+        if max(abs(cv_pred)) > 1000000 or np.isnan(train_pred).any():
+            cv_scores.append(500)
+        else:
+            cv_scores.append(mean_squared_error(cv_test['emission'], cv_pred, squared=False))
 
     # Calculate Scores
     train_score = np.mean(train_scores) + np.std(train_scores)

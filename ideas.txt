@@ -2,19 +2,8 @@ THE IDEAS YET TO TRY:
 
 
 Time-Series data:
--) try different numbers of Fourier pairs
-
-
-
--) try scikit's TargetEncoder
-
-
--) tri Standartizing the target (closer to the end)
-
-
-hyperparameters tuning on LightGBM and other models
-
-then ensemble 3 best models
+-) count for covid, look at SO2, NO2 and other concentrations
+(https://www.kaggle.com/competitions/playground-series-s3e20/discussion/428791)
 
 
 
