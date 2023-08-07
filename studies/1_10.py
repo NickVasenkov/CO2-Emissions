@@ -53,8 +53,18 @@ def train_evaluate(params):
 # The function with the parameters ranges. The ranges can be changed.
 def objective(trial):
     params = {
-        'learning_rate': trial.suggest_float('learning_rate', 1e-4, 3e-1, log=True),
-        'n_estimators': trial.suggest_int('n_estimators', 5, 120, step=5)
+        'num_leaves': trial.suggest_int('num_leaves', 10, 100, step=10),
+        'max_depth': trial.suggest_int('max_depth', 2, 30, step=2),
+        'learning_rate': trial.suggest_float('learning_rate', 1e-4, 1e2, log=True),
+        'n_estimators': trial.suggest_int('n_estimators', 5, 100, step=5),
+        'min_child_weight': trial.suggest_float('min_child_weight', 1e-4, 1e2, log=True),
+        'min_child_samples': trial.suggest_int('min_child_samples', 10, 100, step=10),
+        'subsample': trial.suggest_float('subsample', 0.5, 1.00, step=0.05),
+        'subsample_freq': trial.suggest_int('subsample_freq', 0, 50, step=10),
+        'colsample_bytree': trial.suggest_float('colsample_bytree', 0.6, 1.00, step=0.05),
+        'reg_alpha': trial.suggest_float('reg_alpha', 1e-4, 1e2, log=True),
+        #'reg_lambda': trial.suggest_float('reg_lambda', 1e-4, 1e2, log=True)
+
     }
     return train_evaluate(params)
 
@@ -84,5 +94,5 @@ param_importance_plot = vis.plot_param_importances(study)
 param_importance_plot.show()
 
 # Plotting a contour plot
-contour_plot = vis.plot_contour(study, params=["n_estimators", "learning_rate"])
+contour_plot = vis.plot_contour(study, params=["learning_rate", "max_depth"])
 contour_plot.show()
