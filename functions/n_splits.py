@@ -13,7 +13,7 @@ SEED = global_variables.loc[0, 'SEED']
 import lightgbm as lgb
 
 # Instantiate the regressor
-model = lgb.LGBMRegressor(random_state=SEED, n_jobs=-1, n_estimators=10)
+model = lgb.LGBMRegressor(random_state=SEED, n_jobs=-1)
 
 # Create array of random states for testing number of splits
 import random
@@ -22,11 +22,11 @@ random_states = random.sample(range(1, 100000), 15)
 # Calculate Scores and stds vs. number of splits
 from functions.get_score import get_score
 
-tradeoff = pd.DataFrame({'random_state': [], 'n_splits': [], 'Train Score': [],
-                                   'Cross-Val Score': [], 'Cross-val std': []})
+tradeoff = pd.DataFrame({'random_state': [], 'n_splits': [], 'Train RMSE': [],
+                                   'Cross-Val RMSE': [], 'Cross-val std': []})
 
 for random_state in random_states:
-    for n_splits in range(2, 15):
+    for n_splits in range(2, 9):
         index = len(tradeoff)
         tradeoff.loc[index, 'random_state'] = random_state
         tradeoff.loc[index, 'n_splits'] = n_splits
@@ -35,8 +35,8 @@ for random_state in random_states:
                                                                      prepare_submission=False,
                                                                      n_splits=n_splits,
                                                                      global_n_splits=False)
-        tradeoff.loc[index, 'Train Score'] = train_score
-        tradeoff.loc[index, 'Cross-Val Score'] = cross_score
+        tradeoff.loc[index, 'Train RMSE'] = train_score
+        tradeoff.loc[index, 'Cross-Val RMSE'] = cross_score
         tradeoff.loc[index, 'Cross-val std'] = cross_scores_std
 
 
@@ -47,9 +47,9 @@ tradeoff.to_csv('tradeoff.csv')
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-sns.lineplot(data=tradeoff, x='n_splits', y='Train Score')
+sns.lineplot(data=tradeoff, x='n_splits', y='Train RMSE')
 plt.show()
-sns.lineplot(data=tradeoff, x='n_splits', y='Cross-Val Score')
+sns.lineplot(data=tradeoff, x='n_splits', y='Cross-Val RMSE')
 plt.show()
 sns.lineplot(data=tradeoff, x='n_splits', y='Cross-val std')
 plt.show()

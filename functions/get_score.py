@@ -63,8 +63,8 @@ def get_score(global_variables, train, test=None, model=None, scores_df=None,
             cv_scores.append(mean_squared_error(cv_test['emission'], cv_pred, squared=False))
 
     # Calculate Scores
-    train_score = np.mean(train_scores) + np.std(train_scores)
-    cross_score = np.mean(cv_scores) + np.std(cv_scores)
+    train_score = np.mean(train_scores)
+    cross_score = np.mean(cv_scores)
 
     # Update the scores DataFrame
     if update:

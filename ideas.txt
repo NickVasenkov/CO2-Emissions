@@ -2,9 +2,15 @@ THE IDEAS YET TO TRY:
 
 
 Time-Series data:
--) count for covid, look at SO2, NO2 and other concentrations
-(https://www.kaggle.com/competitions/playground-series-s3e20/discussion/428791)
 
+Seasonality in features
+
+https://machinelearningmastery.com/decompose-time-series-data-trend-seasonality/
+https://www.statsmodels.org/dev/generated/statsmodels.tsa.seasonal.seasonal_decompose.html
+
+
+
+Location, Location Group, week_no, week_no+Location : introduce a variable or separate
 
 
 OFFTOPIC
