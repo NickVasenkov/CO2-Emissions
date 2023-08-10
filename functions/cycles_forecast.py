@@ -21,6 +21,7 @@ def make_multistep_target(ts, steps):
 
 model = MultiOutputRegressor(xgb.XGBRegressor(random_state=SEED, n_jobs=-1, n_estimators=70))
 
+
 location_count=0
 # For each location
 for location in train_and_cv['Location'].unique():

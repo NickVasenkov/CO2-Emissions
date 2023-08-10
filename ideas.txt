@@ -1,17 +1,24 @@
 THE IDEAS YET TO TRY:
 
 
-Time-Series data:
+## Time-Series
 
-Seasonality in features
+Cycles forecast
 
-https://machinelearningmastery.com/decompose-time-series-data-trend-seasonality/
-https://www.statsmodels.org/dev/generated/statsmodels.tsa.seasonal.seasonal_decompose.html
+One of possible strategies (separately for each Group):
+
+-) Calculate lags for the training set
+-) Calculate lags for the first row of the cv set
+(we need just the rows from the training set for this)
+-)  Fit the model to the whole training set + 1 row of the cv set
+-) Predict for the 1st row of the cv set
+-) Now we can calculate lags for the second row of the cv set, etc.
+Then we can compare prediction with real residues
+if Cross-val score is high, then do the same with the test set
 
 
+## Submit best by cross-val and best by test
 
-Location, Location Group, week_no, week_no+Location : introduce a variable or separate
-
-
-OFFTOPIC
+## OFFTOPIC
 for spaceship-try residuals
+check steps like tuning and filling NaNs with Test Accuracy
