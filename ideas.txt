@@ -1,7 +1,10 @@
 THE IDEAS YET TO TRY:
 
 
-second seasonality removal
+
+In Part 1 and Part 2: count for MedianAmongYears (for each location and week of the year)
+
+
 
 then cycles 
 
@@ -17,6 +20,8 @@ Use Trend from Part 2 to calculate AvgYearlyGrowth (TrendSlope * 53)
 for each location and week of the year: calculate MedianAmongYears and save the YearOfMedian (if year is missing, then 2020)
 
 prediction = MedianAmongYears + AvgYearlyGrowth * (year - YearOfMedian)
+
+EASIER: subtract Trend first, (then check no trend), then prediction = MedianAmongYear
 
 maybe, use predictions as a new feature for part 1
 
