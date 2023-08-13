@@ -1,20 +1,24 @@
 THE IDEAS YET TO TRY:
 
 
-## Time-Series
+second seasonality removal
 
-Cycles forecast
+then cycles 
 
-One of possible strategies (separately for each Group):
+## after calculating trend-seasonality-cycles, use predictions as a new feature for part 1
 
--) Calculate lags for the training set
--) Calculate lags for the first row of the cv set
-(we need just the rows from the training set for this)
--)  Fit the model to the whole training set + 1 row of the cv set
--) Predict for the 1st row of the cv set
--) Now we can calculate lags for the second row of the cv set, etc.
-Then we can compare prediction with real residues
-if Cross-val score is high, then do the same with the test set
+
+## A third approach:
+
+--look at the yearly patterns: are there shifts or the patterns align?
+
+Use Trend from Part 2 to calculate AvgYearlyGrowth (TrendSlope * 53)
+
+for each location and week of the year: calculate MedianAmongYears and save the YearOfMedian (if year is missing, then 2020)
+
+prediction = MedianAmongYears + AvgYearlyGrowth * (year - YearOfMedian)
+
+maybe, use predictions as a new feature for part 1
 
 
 ## Submit best by cross-val and best by test
