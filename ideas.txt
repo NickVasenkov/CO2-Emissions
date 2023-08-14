@@ -1,11 +1,6 @@
 THE IDEAS YET TO TRY:
 
 
-## ?? Try to introduce week_no_enc again in Part 1
-
-
-## after calculating trend-seasonality-cycles, use predictions as a new feature for part 1
-
 
 
 ## Submit best by cross-val and best by test
