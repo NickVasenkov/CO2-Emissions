@@ -1,5 +1,32 @@
 THE IDEAS YET TO TRY:
 
+Part 1
+KMeans (how?)
+xgb
+then tuned
+
+
+Part 3
+
+Median_x_features_by_groups
+
+Part 4
+
+
+
+## Naive blending of the best predictions (1_09(?), 1_14(test),  2_04, 3_02 or 3_03)
+
+More features to consider: encoded features for week, location, group, week+location, important features from Part 1
+
+- Prepare predicitons as features
+- Do hyperparameter tuning for the choice of features (with get_score function)
+- Check Test RMSE
+- With the best set, Do hyperparameter tuning on parameters
+- Check Test RMSE
+- With the best params, again, Do hyperparameter tuning for the choice of features
+- Check Test RMSE
+...
+If there is a new feature, it can be added at the end to feature search, instead of starting from scratch.
 
 
 
