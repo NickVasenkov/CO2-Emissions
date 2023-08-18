@@ -45,7 +45,8 @@ def train_evaluate(params):
     # Calculate the cross-validation Score
     from functions.get_score import get_score
 
-    train_score, cross_score, std, sub = get_score(global_variables, train, model=model, update=False, prepare_submission=False)
+    train_score, cross_score, std, sub = get_score(global_variables, train, model=model, update=False,
+                                                   prepare_submission=False)
 
     return cross_score
 

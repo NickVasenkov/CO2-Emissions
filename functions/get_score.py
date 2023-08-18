@@ -57,7 +57,7 @@ def get_score(global_variables, train, test=None, model=None, scores_df=None,
 
         cv_pred = model.predict(cv_test.drop('emission', axis=1))
         # Check for unreasonable predictions:
-        if max(abs(cv_pred)) > 1000000 or np.isnan(train_pred).any():
+        if max(abs(cv_pred)) > 1000000 or np.isnan(cv_pred).any():
             cv_scores.append(500)
         else:
             cv_scores.append(mean_squared_error(cv_test['emission'], cv_pred, squared=False))

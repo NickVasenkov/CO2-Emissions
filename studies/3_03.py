@@ -12,7 +12,7 @@ SECONDS = 5
 N_TRIALS = 10000
 
 # CHOOSE THE NUMBER OF PROCESSORS (will be multiplied by 2?)
-N_JOBS = 1
+N_JOBS = -1
 
 # Import packages
 import joblib

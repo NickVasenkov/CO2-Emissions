@@ -1,14 +1,11 @@
 THE IDEAS YET TO TRY:
 
 Part 1
-KMeans (how?)
-xgb
-then tuned
-
+tuning / different models
 
 Part 3
 
-Median_x_features_by_groups
+Max_x_features_by_groups
 
 Part 4
 
