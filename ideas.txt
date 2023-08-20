@@ -10,6 +10,9 @@ Max_x_features_by_groups
 Part 4
 
 
+Perform PCA only on features from sattelites
+
+
 
 ## Naive blending of the best predictions (1_09(?), 1_14(test),  2_04, 3_02 or 3_03)
 
