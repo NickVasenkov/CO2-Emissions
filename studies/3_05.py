@@ -4,8 +4,8 @@
 STUDY_NAME = '3_05'
 
 ## CHOOSE MAXIMUM RUNNING TIME:
-HOURS = 0
-MINUTES = 5
+HOURS = 2
+MINUTES = 30
 SECONDS = 5
 
 ## CHOOSE NUMBER OF TRIALS:
@@ -55,7 +55,7 @@ def train_evaluate(params):
 
 # The function with the parameters ranges. The ranges can be changed.
 def objective(trial):
-    params = {location: trial.suggest_float(location, 0.9, 1.1, step=0.01) for location in \
+    params = {location: trial.suggest_float(location, 0.9, 1.1, step=0.001) for location in \
                                             train['Location'].unique()}
     return train_evaluate(params)
 
