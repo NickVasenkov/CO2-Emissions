@@ -26,8 +26,11 @@ My solution is spreaded across 5 Jupiter notebooks, plus several separate Python
 The 4 notebooks named CO2 Emissions 1 through 4 represent 4 distinct approaches to the problem:
 
 https://github.com/NickVasenkov/CO2-Emissions/blob/main/CO2%20Emissions%201.ipynb
+
 https://github.com/NickVasenkov/CO2-Emissions/blob/main/CO2%20Emissions%202.ipynb
+
 https://github.com/NickVasenkov/CO2-Emissions/blob/main/CO2%20Emissions%203.ipynb
+
 https://github.com/NickVasenkov/CO2-Emissions/blob/main/CO2%20Emissions%204.ipynb
 
 The notebook 'CO2 Emissions Stacking' represents several techniques of combining the best models from the previous parts into a new model:
