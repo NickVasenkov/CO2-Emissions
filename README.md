@@ -17,7 +17,7 @@ Note, the data is not real, it was *syntesized based on real data*, that is why 
 
 During the competition, we could see the 'Public Score', which was calculated on a hidden test set. We could make up to 105 submissions during the competition, and the best result is counted towards the 'Public Score' position. By the 'Public Score', I finished in top 11%. (https://www.kaggle.com/competitions/playground-series-s3e20/leaderboard?tab=public , as nvasenkov).
 
-The leaderboard position is calculated at the end of competition, based on a separate hidden test set ('Private Score'). For the Private Score, we need to select only 2 submissions from those we've made during the competition. I finished in top 23%: https://www.kaggle.com/nvasenkov . However, one of the submissions I've done during the competition (but didn't selected it as a final submission)) scored better than the 1st place submission.
+The leaderboard position is calculated at the end of competition, based on a separate hidden test set ('Private Score'). For the Private Score, we need to select only 2 submissions from those we've made during the competition. I finished in top 23%: https://www.kaggle.com/nvasenkov . However, one of the submissions I've done during the competition (but didn't selected it as a final submission)) scored better than the winner of this competition.
 
 ## My solution:
 
