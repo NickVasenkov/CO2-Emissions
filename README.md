@@ -11,7 +11,7 @@ The objective of this challenge is to create machine learning models that use op
 
 Approximately 497 unique locations were selected from multiple areas in Rwanda, with a distribution around farm lands, cities and power plants. The data for this competition is split by time; the years 2019 - 2021 are included in the training data, and your task is to predict the CO2 emissions data for 2022 through November.
 
-Note, the data is not real, it was *syntesized based on real data*, that is why we are predicting 2022 emissions in a 2023 competition.
+Note, the data is not real, it was *synthesized based on real data*, that is why we are predicting 2022 emissions in a 2023 competition.
 
 ## Results
 
